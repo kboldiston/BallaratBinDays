@@ -4,13 +4,9 @@ import 'package:flutter/material.dart';
 
 class NavigationDrawer extends StatelessWidget {
   List<Widget> listItems(BuildContext context) {
-    return <Widget> [
+    return <Widget>[
       DrawerHeader(
-        child: Text(
-          Config.appTitle,
-          style: TextStyle(fontSize: 24)          
-        )
-      ),
+          child: Text(Config.appTitle, style: TextStyle(fontSize: 24))),
       ListTile(
         leading: Icon(Icons.home),
         title: Text('Home'),
@@ -27,10 +23,9 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: listItems(context),
-      )
-    );
+        child: ListView(
+      padding: EdgeInsets.zero,
+      children: listItems(context),
+    ));
   }
 }

@@ -54,8 +54,8 @@ class HomeScreenState extends State<HomeScreen> {
     if (_settings.address.isEmpty) return null;
 
     String query = Config.query;
-    query = query.replaceAll(new RegExp(r'\{1\}'),
-        "${_settings.address.toLowerCase()}");
+    query = query.replaceAll(
+        new RegExp(r'\{1\}'), "${_settings.address.toLowerCase()}");
 
     String endpoint = "${Config.endpoint}${Uri.encodeComponent(query)}";
     final response = await http.get(endpoint);

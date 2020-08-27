@@ -5,13 +5,12 @@ class BinData {
   final String nextWaste;
   final String nextRecycle;
 
-  BinData({
-    this.address, 
-    this.collectionDay, 
-    this.nextGreen, 
-    this.nextWaste,
-    this.nextRecycle
-  });
+  BinData(
+      {this.address,
+      this.collectionDay,
+      this.nextGreen,
+      this.nextWaste,
+      this.nextRecycle});
 
   factory BinData.fromJson(Map<String, dynamic> json) {
     return BinData(
