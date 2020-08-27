@@ -1,4 +1,5 @@
-# BallaratBinDays
+# BinDays
+![BinDays](https://github.com/kboldiston/BinDays/workflows/Greet%20Everyone/badge.svg)
 
 A new Flutter project.
 
