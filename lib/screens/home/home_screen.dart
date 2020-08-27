@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:BallaratBinDays/models/bin_days.dart';
 import 'package:BallaratBinDays/models/config.dart';
 import 'package:BallaratBinDays/models/settings.dart';
 import 'package:BallaratBinDays/widgets/navigation_drawer.dart';
@@ -15,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   Settings _settings = Settings();
+  BinData _binDays = BinData();
 
   @override
   void initState() {
@@ -29,18 +33,13 @@ class HomeScreenState extends State<HomeScreen> {
         drawer: NavigationDrawer(),
         body: ListView(
           padding: new EdgeInsets.all(30.0),
-          children: <Widget>[Text("Your bin day is:")],
+          children: <Widget>[
+            Text("Your bin day is: ${_binDays.collectionDay}"),
+            Text("Next waste collection: ${_binDays.nextWaste}"),
+            Text("Next recycle collection: ${_binDays.nextRecycle}"),
+            Text("Next green collection: ${_binDays.nextGreen}"),
+          ],
         ));
-  }
-
-  Future<http.Response> _fetchDays() {
-    if(_settings.address.isEmpty) return null;
-
-    String query = Config.query;
-    query.replaceAll(new RegExp(r'\{1\}'), "${_settings.address}%");
-    
-    String endpoint = "${Config.endpoint}$query"; 
-    return http.get(endpoint);
   }
 
   _read() async {
@@ -48,6 +47,23 @@ class HomeScreenState extends State<HomeScreen> {
     final key = 'BinDays.address';
     _settings.address = prefs.getString(key) ?? "";
 
-   // _fetchDays();
+    _fetchDays();
+  }
+
+  _fetchDays() async {
+    if (_settings.address.isEmpty) return null;
+
+    String query = Config.query;
+    query = query.replaceAll(new RegExp(r'\{1\}'),
+        "${_settings.address.toLowerCase()}");
+
+    String endpoint = "${Config.endpoint}${Uri.encodeComponent(query)}";
+    final response = await http.get(endpoint);
+
+    switch (response.statusCode) {
+      case 200:
+        _binDays = BinData.fromJson(json.decode(response.body));
+        break;
+    }
   }
 }

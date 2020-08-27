@@ -74,14 +74,12 @@ class _SettingsScreenFormState extends State<SettingsScreen> {
     final prefs = await SharedPreferences.getInstance();
     final key = 'BinDays.address';
     _settings.address = prefs.getString(key) ?? "";
-    print('read ${_settings.address}');
-    addressController.text = Uri.decodeFull(_settings.address);
+    addressController.text = _settings.address;
   }
 
   _save() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'BinDays.address';
-    prefs.setString(key, Uri.encodeFull(_settings.address));
-    print('saved ${_settings.address}');
+    prefs.setString(key, _settings.address);
   }
 }
