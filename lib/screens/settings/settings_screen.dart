@@ -57,6 +57,7 @@ class _SettingsScreenFormState extends State<SettingsScreen> {
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
                         _save();
+                        Navigator.pushNamed(context, "/");
                       }
                     },
                     child: Text('Save'),
