@@ -1,5 +1,5 @@
 # BinDays
-![BinDays](https://github.com/kboldiston/BinDays/workflows/Flutter%20action/badge.svg)
+![Flutter CI](https://github.com/kboldiston/BinDays/workflows/Flutter%20CI/badge.svg)
 
 A new Flutter project.
 
