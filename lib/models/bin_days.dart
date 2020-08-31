@@ -42,6 +42,9 @@ class BinData {
   }
 
   Widget binsToTakeOut() {
+    if (address == null) {
+      return new Column();
+    }
     List<BinType> binTypes = new List<BinType>();
 
     binTypes.add(new WasteBinType());

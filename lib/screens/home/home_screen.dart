@@ -35,9 +35,21 @@ class HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(title: Text('Bin Days')),
         drawer: NavigationDrawer(),
-        body: ListView(
-          padding: new EdgeInsets.all(30.0),
-          children: _getDisplay(),
+        body: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height / 2.2,
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  children: _getDisplay(),
+                ),
+              ),
+              Expanded(
+                child: _binDays.binsToTakeOut(),
+              ),
+            ],
+          ),
         ),
         floatingActionButton: _getFloatingActionButton());
   }
@@ -77,7 +89,6 @@ class HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      _binDays.binsToTakeOut(),
     ];
   }
 
