@@ -12,17 +12,18 @@ class BinDays extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: Config.appTitle,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => HomeScreen(),
-          // When navigating to the "/second" route, build the SecondScreen widget.
-          '/settings': (context) => SettingsScreen(),
-          // '/punching': (context) => PunchScreen()
-        });
+      title: Config.appTitle,
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/settings': (context) => SettingsScreen(),
+        // '/punching': (context) => PunchScreen()
+      },
+    );
   }
 }
