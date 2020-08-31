@@ -62,7 +62,7 @@ class HomeScreenState extends State<HomeScreen> {
 
     switch (response.statusCode) {
       case 200:
-        _binDays = BinData.fromJson(json.decode(response.body));
+        setState(() => _binDays = BinData.fromJson(json.decode(response.body)));
         break;
     }
   }
