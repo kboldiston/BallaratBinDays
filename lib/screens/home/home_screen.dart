@@ -34,10 +34,29 @@ class HomeScreenState extends State<HomeScreen> {
         body: ListView(
           padding: new EdgeInsets.all(30.0),
           children: <Widget>[
-            Text("Your bin day is: ${_binDays.collectionDay}"),
-            Text("Next waste collection: ${_binDays.nextWaste}"),
-            Text("Next recycle collection: ${_binDays.nextRecycle}"),
-            Text("Next green collection: ${_binDays.nextGreen}"),
+            Center(
+              child: Column(
+                children: [
+                  Text("${_binDays.address}"),
+                  Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Column(children: [
+                      Text("Your next collection is"),
+                      Text(
+                        "${_binDays.collectionDay}",
+                        style: TextStyle(fontSize: 45.0),
+                        textAlign: TextAlign.center,
+                      ),
+                    ]),
+                  ),
+                  Text(
+                    "Put these bins out the night before",
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            _binDays.binsToTakeOut()
           ],
         ));
   }
