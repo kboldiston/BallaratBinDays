@@ -40,7 +40,7 @@ class HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Container(
                 height: MediaQuery.of(context).size.height / 2.2,
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(30.0),
                 child: Column(
                   children: _getDisplay(),
                 ),

@@ -55,6 +55,9 @@ class BinData {
 
     List<Widget> binIcons =
         binTypes.map((BinType bin) => bin.getIcon()).toList();
-    return Column(children: binIcons);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: binIcons,
+    );
   }
 }
