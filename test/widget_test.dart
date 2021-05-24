@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Thing is true', () {
-    expect(1, 1);
+    // comment to get the build to run again
+    expect(1, 1); 
   });
 }
